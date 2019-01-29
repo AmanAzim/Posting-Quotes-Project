@@ -1,9 +1,9 @@
 <template>
     <div class="row">
         <div class="col-sm-12">
-            <h2>Quote addded</h2>
+            <h2>Quote added</h2>
             <div class="progress">
-                <div class="progress-bar progress-bar-striped progress-bar-animated" style="width: 40%"></div>
+                <div class="progress-bar" v-bind:style="{width: pBar + '%'}"></div>
             </div>
         </div>
     </div>
@@ -11,7 +11,11 @@
 
 <script>
     export default {
-
+        props:['pBar'],
+        data(){
+            return{
+            };
+        }
     }
 </script>
 

@@ -1,9 +1,10 @@
 <template>
     <div class="container">
 
-        <header></header>
+        <header-bar v-bind:pBar="pBar"></header-bar>
 
-        <new-quote v-on:get-quote="quotes.push($event)"></new-quote>
+                    <!-- v-on:get-quote="quotes.push($event)" -->
+        <new-quote v-on:get-quote="addQuote($event)"></new-quote>
 
         <quote-grid v-bind:quotes="quotes" v-on:remove-quote="removeQuote($event)"></quote-grid>
 
@@ -22,20 +23,26 @@
     import QuoteGrid from './components/QuoteGrid.vue';
     import NewQuote from './components/NewQuote.vue';
     import Header from './components/Header.vue';
+
     export default {
         components:{
             'quote-grid':QuoteGrid,
             'new-quote':NewQuote,
-            'header':Header,
+            'header-bar':Header,
         },
         data(){
             return{
                 quotes:[],
                 maxQuotes:10,
                 showButton:true,
+                pBar:0,
             };
         },
         methods:{
+            addQuote($event){
+                this.quotes.push($event);
+                this.pBar+=10;
+            },
             removeQuote(quoteToDelete){
                 this.quotes.splice( this.quotes.indexOf(quoteToDelete), 1);
             },
