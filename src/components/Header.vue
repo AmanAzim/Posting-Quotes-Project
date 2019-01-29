@@ -2,8 +2,8 @@
     <div class="row">
         <div class="col-sm-12">
             <h2>Quote added</h2>
-            <div class="progress">
-                <div class="progress-bar" v-bind:style="{width: pBar + '%'}">{{pBar+'%'}}</div>
+            <div class="progress">    <!--v-bind:style="{width: (arrLen*10) + '%'}" -->
+                <div class="progress-bar" v-bind:style="{width: pBar + '%'}">{{arrLen}} / {{maxQuotes}}</div>
             </div>
         </div>
     </div>
@@ -11,7 +11,7 @@
 
 <script>
     export default {
-        props:['pBar'],
+        props:['pBar', 'maxQuotes', 'arrLen'], // we actually need only pBar or arrLen, one of them is enough
         data(){
             return{
             };

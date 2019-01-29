@@ -1,7 +1,7 @@
 <template>
     <div class="container">
 
-        <header-bar v-bind:pBar="pBar"></header-bar>
+        <header-bar v-bind:pBar="pBar" v-bind:maxQuotes="maxQuotes" v-bind:arrLen="quotes.length"></header-bar>
 
                     <!-- v-on:get-quote="quotes.push($event)" -->
         <new-quote v-on:get-quote="addQuote($event)"></new-quote>
