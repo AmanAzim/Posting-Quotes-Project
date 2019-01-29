@@ -10,12 +10,13 @@
 
         <div class="row">
             <div class="col-sm-12 text-center">
-                <div class="alert alert-info" v-on:click="showButton=!showButton">Click on a quote to delete it
-                                                            <p v-if="showButton"><button>Stress release Button</button></p>
+                <div class="alert alert-info" v-on:click="showButton=!showButton" >
+                    <p v-if="quotes.length!==maxQuotes">Click on a quote to delete it</p>
+                    <p v-else>Delete some quotes to add more</p>
+                    <p v-if="showButton"><button>Stress release Button</button></p>
                 </div>
             </div>
         </div>
-
     </div>
 </template>
 
@@ -40,11 +41,18 @@
         },
         methods:{
             addQuote($event){
-                this.quotes.push($event);
-                this.pBar+=10;
+                if(this.quotes.length==this.maxQuotes){
+                    return;
+                }
+                else{
+                    this.quotes.push($event);
+                    this.pBar+=10;
+                }
+
             },
             removeQuote(quoteToDelete){
                 this.quotes.splice( this.quotes.indexOf(quoteToDelete), 1);
+                this.pBar-=10;
             },
         },
     }

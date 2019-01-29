@@ -3,7 +3,7 @@
         <div class="col-sm-12">
             <h2>Quote added</h2>
             <div class="progress">
-                <div class="progress-bar" v-bind:style="{width: pBar + '%'}"></div>
+                <div class="progress-bar" v-bind:style="{width: pBar + '%'}">{{pBar+'%'}}</div>
             </div>
         </div>
     </div>
