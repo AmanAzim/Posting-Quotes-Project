@@ -1,7 +1,12 @@
 <template>
     <div class="container">
+
+        <header></header>
+
         <new-quote v-on:get-quote="quotes.push($event)"></new-quote>
+
         <quote-grid v-bind:quotes="quotes" v-on:remove-quote="removeQuote($event)"></quote-grid>
+
         <div class="row">
             <div class="col-sm-12 text-center">
                 <div class="alert alert-info" v-on:click="showButton=!showButton">Click on a quote to delete it
@@ -9,16 +14,19 @@
                 </div>
             </div>
         </div>
+
     </div>
 </template>
 
 <script>
     import QuoteGrid from './components/QuoteGrid.vue';
     import NewQuote from './components/NewQuote.vue';
+    import Header from './components/Header.vue';
     export default {
         components:{
             'quote-grid':QuoteGrid,
             'new-quote':NewQuote,
+            'header':Header,
         },
         data(){
             return{
@@ -30,7 +38,7 @@
         methods:{
             removeQuote(quoteToDelete){
                 this.quotes.splice( this.quotes.indexOf(quoteToDelete), 1);
-            }
+            },
         },
     }
 </script>

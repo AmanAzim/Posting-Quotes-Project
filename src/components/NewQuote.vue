@@ -22,8 +22,10 @@
         },
         methods:{
             createNew(){
-              this.$emit('get-quote', this.quote);
-              this.quote='';
+                if(this.quote==''){ return;}
+
+                this.$emit('get-quote', this.quote);
+                this.quote='';
             },
         }
     }
