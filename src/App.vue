@@ -13,7 +13,6 @@
                 <div class="alert alert-info" v-on:click="showButton=!showButton" >
                     <p v-if="quotes.length!==maxQuotes">Click on a quote to delete it</p>
                     <p v-else>Delete some quotes to add more</p>
-                    <p v-if="showButton"><button>Stress release Button</button></p>
                 </div>
             </div>
         </div>
